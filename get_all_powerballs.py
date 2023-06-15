@@ -45,12 +45,12 @@ for version, date in powerball_versions.items():
             last_height = new_height
     filename=f'{version}.json'
     try:
-        with open(filename,'x') as f:
+        with open('number_data/'+filename,'x') as f:
             f.write(json.dumps({}))
             f.close()
     except FileExistsError:
         pass
-    with open(filename,'r') as f:
+    with open('number_data/'+filename,'r') as f:
         data=json.loads(f.read())
 
     res=driver.find_element(By.ID,"searchNumbersResults")
@@ -84,7 +84,7 @@ for version, date in powerball_versions.items():
             print(e)
     data.update(powerball_numbers)
     jdump=json.dumps(data)
-    with open(filename,'w') as f:
+    with open('number_data/'+filename,'w') as f:
         f.write(jdump)
         f.close()
     driver.close()
