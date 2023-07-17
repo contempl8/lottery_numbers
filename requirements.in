@@ -2,3 +2,7 @@ bokeh
 streamlit
 selenium
 seaborn
+tensorflow
+ephem
+dateparser
+scikit-learn
